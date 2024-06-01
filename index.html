@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Editable Leaderboard</title>
+    <title>Leaderboard</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -22,9 +22,6 @@
         th {
             background-color: #f2f2f2;
         }
-        .editable {
-            background-color: #e8f0fe;
-        }
         #countdown {
             font-size: 2em;
             margin-top: 20px;
@@ -34,11 +31,11 @@
 <body>
 
     <h1>Leaderboard</h1>
-    <table id="leaderboard">
+    <table>
         <thead>
             <tr>
                 <th>Name</th>
-                <th>Total</th>
+                <th>Total Games</th>
                 <th>ITM</th>
                 <th>%ITM</th>
                 <th>Total Winning</th>
@@ -46,36 +43,36 @@
         </thead>
         <tbody>
             <tr>
-                <td contenteditable="true" class="editable">S</td>
-                <td contenteditable="true" class="editable">1</td>
-                <td contenteditable="true" class="editable">1</td>
-                <td contenteditable="true" class="editable">100%</td>
-                <td contenteditable="true" class="editable">$24.68</td>
+                <td>S</td>
+                <td>1</td>
+                <td>1</td>
+                <td>100%</td>
+                <td>$24.68</td>
             </tr>
             <tr>
-                <td contenteditable="true" class="editable">R</td>
-                <td contenteditable="true" class="editable">0</td>
-                <td contenteditable="true" class="editable">0</td>
-                <td contenteditable="true" class="editable">0%</td>
-                <td contenteditable="true" class="editable">$0</td>
+                <td>R</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0%</td>
+                <td>$0</td>
             </tr>
             <tr>
-                <td contenteditable="true" class="editable">T</td>
-                <td contenteditable="true" class="editable">0</td>
-                <td contenteditable="true" class="editable">0</td>
-                <td contenteditable="true" class="editable">0%</td>
-                <td contenteditable="true" class="editable">$0</td>
+                <td>T</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0%</td>
+                <td>$0</td>
             </tr>
             <tr>
-                <td contenteditable="true" class="editable">G</td>
-                <td contenteditable="true" class="editable">0</td>
-                <td contenteditable="true" class="editable">0</td>
-                <td contenteditable="true" class="editable">0%</td>
-                <td contenteditable="true" class="editable">$0</td>
+                <td>G</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0%</td>
+                <td>$0</td>
             </tr>
             <tr>
                 <td>F</td>
-                <td>6</td>
+                <td>7</td>
                 <td>0</td>
                 <td>0%</td>
                 <td>$0</td>
@@ -84,27 +81,9 @@
         </tbody>
     </table>
 
-    <button onclick="saveChanges()">Save Changes</button>
     <div id="countdown"></div>
 
     <script>
-        function saveChanges() {
-            const table = document.getElementById('leaderboard');
-            const rows = table.rows;
-            let data = [];
-
-            for (let i = 1; i < rows.length; i++) { // Start from 1 to skip the header row
-                let row = rows[i];
-                let rowData = [];
-                for (let j = 0; j < row.cells.length; j++) {
-                    rowData.push(row.cells[j].innerText);
-                }
-                data.push(rowData);
-            }
-            console.log(data); // Log the data to the console, or send it to a server
-            alert('Changes saved! Check console for data.');
-        }
-
         // Set the date we're counting down to
         var countDownDate = new Date("June 20, 2024 23:59:59").getTime();
 
